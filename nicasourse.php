@@ -11,6 +11,8 @@ if ( ! defined( 'WPINC' ) ) {
     die;
 }
 
+include_once 'includes/taxonomy_product_category.php'
+
 register_activation_hook( __FILE__, 'nicasource_activate' );
 
 function nicasource_activate(){
@@ -18,6 +20,7 @@ function nicasource_activate(){
 }
 
 function start_plugin(){
+    product_category_taxonomy();
 }
 
 
