@@ -1,0 +1,15 @@
+.sm-row-content {
+    padding: 10px;
+    margin-bottom: 5px;
+}
+
+.sm-row-content input[type="text"] {
+    width: 100%;
+    border-radius: 3px;
+    max-width: 250px;
+    height: 25px;
+}
+
+.sm-row-content select {
+    width: 150px;
+}

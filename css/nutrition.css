@@ -1,0 +1,115 @@
+.product-boxed {
+    width: 100%;
+    position: relative;
+}
+
+.product-left-box {
+    width: 50%;
+    position: relative;
+    float: left;
+}
+
+.product-left-box .product-title-text {
+    font-weight: 700;
+}
+
+.nutrition-fact-box {
+    max-width: 400px;
+    border: 1px solid black;
+    padding: 5px;
+}
+
+.nutrition-fact-box p {
+    font-size: 26px;
+    color: #000000;
+    text-align: center;
+    margin-bottom: 0px;
+    line-height: 26px;
+}
+
+.nutrition-fact-box .serving-size {
+    font-size: 12px;
+    text-align: left;
+    color: #000;
+}
+
+.nutrition-fact-box .small-text {
+    font-size: 9px;
+    font-weight: 700;
+}
+
+.nutrition-fact-box .row-left {
+    float: left;
+    width: 50%;
+}
+
+.nutrition-fact-box .row-right {
+    float: right;
+    width: 50%;
+}
+
+.nutrition-fact-box .box-title-black {
+    font-weight: 700;
+    font-size: 11px;
+}
+
+.nutrition-fact-box .box-title {
+    font-weight: 400;
+    font-size: 11px;
+}
+
+.nutrition-fact-box p.small {
+    font-size: 10px;
+    color: #000000;
+    text-align: left;
+    margin-bottom: 0px;
+    line-height: 13px;
+}
+
+.nutrition-fact-box .nutri-box {
+    text-align: center;
+    font-weight: 700;
+    padding: 5px;
+    width: 100%;
+    background: #cccccc;
+    font-size: 12px;
+}
+
+.nutrition-fact-box .daily,
+.nutrition-fact-box .total-fat-pc,
+.nutrition-fact-box .satured-fat-pc,
+.nutrition-fact-box .cholesterol-pc,
+.nutrition-fact-box .sodium-pc,
+.nutrition-fact-box .carbohydrate-pc,
+.nutrition-fact-box .dietary-fiber-pc,
+.nutrition-fact-box .vitaminc {
+    text-align: right;
+}
+
+.nutrition-fact-box .satured-fat,
+.nutrition-fact-box .trans-fat,
+.nutrition-fact-box .dietary-fiber,
+.nutrition-fact-box .sugars {
+    padding-left: 10px;
+}
+
+.nutrition-fact-box .big-separator {
+    height: 10px;
+    background: #000000;
+}
+
+.nutrition-fact-box .medium-separator {
+    height: 5px;
+    background: #000000;
+}
+
+.nutrition-fact-box hr {
+    margin-bottom: 0px;
+    background: #000000;
+}
+
+@media only screen and (max-width: 768px) {
+    .product-left-box {
+        width: 100%;
+    }
+}
