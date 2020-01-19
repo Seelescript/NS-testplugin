@@ -12,6 +12,7 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 include_once 'includes/taxonomy_product_category.php'
+include_once 'includes/custom_post_brands.php'
 
 register_activation_hook( __FILE__, 'nicasource_activate' );
 
@@ -20,6 +21,7 @@ function nicasource_activate(){
 }
 
 function start_plugin(){
+    brands_post_type();
     product_category_taxonomy();
 }
 
