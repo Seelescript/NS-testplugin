@@ -10,9 +10,10 @@ Description: Add Custom post Type Product and Brands
 if ( ! defined( 'WPINC' ) ) {
     die;
 }
-
-include_once 'includes/taxonomy_product_category.php'
-include_once 'includes/custom_post_brands.php'
+ 
+include_once 'includes/taxonomy_product_category.php';
+include_once 'includes/custom_post_brands.php';
+include_once 'includes/custom_post_products.php';
 
 register_activation_hook( __FILE__, 'nicasource_activate' );
 
@@ -21,6 +22,7 @@ function nicasource_activate(){
 }
 
 function start_plugin(){
+    products_post_type();
     brands_post_type();
     product_category_taxonomy();
 }

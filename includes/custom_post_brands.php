@@ -48,7 +48,13 @@ function brands_post_type() {
         'exclude_from_search'   => false,
         'publicly_queryable'    => true,
         'capability_type'       => 'page',
+        'rewrite'               =>  array('slug' => 'brands', 'with_front' => false),
     );
     register_post_type( 'brands', $args );
+    add_rewrite_rule( 
+        '^brands/([^/]+)/?$',
+        'index.php?post_type=brands&name=$matches[1]',
+        'top'
+    );
 
 }
