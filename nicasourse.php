@@ -15,6 +15,7 @@ include_once 'includes/taxonomy_product_category.php';
 include_once 'includes/custom_post_brands.php';
 include_once 'includes/custom_post_products.php';
 include_once 'includes/ns_api_endpoint.php';
+include_once 'includes/infinite_scroll.php';
 
 register_activation_hook( __FILE__, 'nicasource_activate' );
 

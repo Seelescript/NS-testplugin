@@ -216,21 +216,50 @@ function add_content_filter( $content ){
         $new_content .= '<div class="product-boxed">';
         $new_content .= '<div class="product-left-box">';
 
-        $new_content .= '<div class="product-title-text">Product Name: ' . get_the_title() . '</div></br>';
+        $new_content .= '<div class="col-md-12 shop-item product-detail-card">';
+        $new_content .= '<div class="card card-product">';
+        $new_content .= '<div class="card-image">';
+        $new_content .= get_the_post_thumbnail( $post->ID, array( 150, 150) );
+        $new_content .= '<div class="ripple-container"></div>';
+        $new_content .= '</div>';
 
+        $new_content .= '<div class="content">';
+        $new_content .= '<h4 class="card-title">';
+        $new_content .=  get_the_title();
+        $new_content .= '</h4>';
+        $new_content .= '<div class="card-description">';
         if ($rating) {
-            $rating_array = product_ratings();
-            $rating_output = $rating_array[$rating]['output'];
-            $new_content .= '<div class="product-title-text">Product Rating: ' . wp_kses_post($rating_output) . '</div></br>';
+                $rating_array = product_ratings();
+                $rating_output = $rating_array[$rating]['output'];
+                $new_content .= '<div class="product-title-text"><b>Product Rating: </b>' . wp_kses_post($rating_output) . '</div>';
         }
+         if ($brand) {
+            $new_content .= '<div class="product-title-text"><b>Product Brand: </b>' . wp_kses_post(get_the_title($brand)) . '</div></br>';
+        }
+       
 
-        if ($brand) {
-            $new_content .= '<div class="product-title-text">Product Brand: ' . wp_kses_post(get_the_title($brand)) . '</div></br>';
-        }
+        $new_content .= '</div>';
+        $new_content .= '</div>';
+        $new_content .= '</div>';
+        $new_content .= '</div>';
+
+        // $new_content .= '<div class="product-title-text">Product Name: ' . get_the_title() . '</div></br>';
+
+        // if ($rating) {
+        //     $rating_array = product_ratings();
+        //     $rating_output = $rating_array[$rating]['output'];
+        //     $new_content .= '<div class="product-title-text">Product Rating: ' . wp_kses_post($rating_output) . '</div></br>';
+        // }
+
+        // if ($brand) {
+        //     $new_content .= '<div class="product-title-text">Product Brand: ' . wp_kses_post(get_the_title($brand)) . '</div></br>';
+        // }
 
 
         $new_content .= '</div>';
         $new_content .= '<div class="product-left-box product-nutrition-fact">';
+        
+       
         $new_content .= '<div class="nutrition-fact-box"><p>'. __("Nutrition Facts","NicaSource").'</p>';
 
         $new_content .= '<div class="serving-size">'. __("Serving Size ","NicaSource") .  $serving_size . 'g</div>';
@@ -254,7 +283,7 @@ function add_content_filter( $content ){
         $new_content .= '<div class="row-right"><div class="satured-fat-pc box-title">' . $satured_fat_pc . '%</div></div><div class="clear"></div></div>';
         $new_content .= '<hr>';
 
-        $new_content .= '<div class="trans-fat box-title">'. __("Trans Fat","NicaSource")  . $trans_fat . 'g</div>';
+        $new_content .= '<div class="trans-fat box-title">'. __("Trans Fat ","NicaSource")  . $trans_fat . 'g</div>';
         $new_content .= '<hr>';
 
         $new_content .= '<div><div class="row-left"><div class="cholesterol-gr box-title-black">'. __("Cholesterol ","NicaSource") . $cholesterol_gr . 'g</div></div>';
@@ -293,6 +322,8 @@ function add_content_filter( $content ){
         $new_content .= '</div>';
         $new_content .= '</div>';
         $new_content .= '</div>';
+        $new_content .= '<h2 class="product_title entry-title">Description:</h2>';
+
     }
 
     //return the content with custom content
