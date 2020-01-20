@@ -36,7 +36,7 @@ function products_post_type()
         'labels' => $labels,
         'supports' => array('title', 'editor', 'thumbnail', 'revisions',),
         'hierarchical' => true,
-        'rewrite' => array('slug' => '%brand_slug%/%product_slug%', 'with_front' => false),
+        'rewrite' => array('slug' => 'brand-%brand_slug%/product-%product_slug%', 'with_front' => false),
         'public' => true,
         'show_ui' => true,
         'show_in_menu' => true,
@@ -96,15 +96,15 @@ function add_custom_css(){
     //include css for products in admin and front end
     $url = plugin_dir_url( __FILE__ );
     if( !is_admin() ){
-        wp_enqueue_style('font-awesome', $url.'css/font-awesome.min.css',__FILE__,array());
+        wp_enqueue_style('font-awesome', $url.'../css/font-awesome.min.css',__FILE__,array());
     }
     if( !is_admin() ){
-        wp_enqueue_style('nutrition-table',  $url.'css/nutrition.css',__FILE__,array());
+        wp_enqueue_style('nutrition-table',  $url.'../css/nutrition.css',__FILE__,array());
     }
 }
 function add_admin_css($hook) {
     $url = plugin_dir_url( __FILE__ );
-    wp_enqueue_style('admin-css',  $url.'css/admin.css',__FILE__,array());
+    wp_enqueue_style('admin-css',  $url.'../css/admin.css',__FILE__,array());
 }
 
 function add_content_filter( $content ){

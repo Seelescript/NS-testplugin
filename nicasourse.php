@@ -14,6 +14,7 @@ if ( ! defined( 'WPINC' ) ) {
 include_once 'includes/taxonomy_product_category.php';
 include_once 'includes/custom_post_brands.php';
 include_once 'includes/custom_post_products.php';
+include_once 'includes/ns_api_endpoint.php';
 
 register_activation_hook( __FILE__, 'nicasource_activate' );
 
@@ -25,6 +26,7 @@ function start_plugin(){
     products_post_type();
     brands_post_type();
     product_category_taxonomy();
+    nicasource_api_endpoints();
 }
 
 
