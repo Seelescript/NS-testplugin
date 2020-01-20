@@ -61,7 +61,7 @@ function list_product_categories( WP_REST_Request $request ){
     $terms = get_terms( array(
         'taxonomy' => 'product_category',
         'orderby' => 'name',
-        'hierarchical' => true
+        'hide_empty' => 0,
     ) );
     return $terms;
 }
