@@ -243,18 +243,6 @@ function add_content_filter( $content ){
         $new_content .= '</div>';
         $new_content .= '</div>';
 
-        // $new_content .= '<div class="product-title-text">Product Name: ' . get_the_title() . '</div></br>';
-
-        // if ($rating) {
-        //     $rating_array = product_ratings();
-        //     $rating_output = $rating_array[$rating]['output'];
-        //     $new_content .= '<div class="product-title-text">Product Rating: ' . wp_kses_post($rating_output) . '</div></br>';
-        // }
-
-        // if ($brand) {
-        //     $new_content .= '<div class="product-title-text">Product Brand: ' . wp_kses_post(get_the_title($brand)) . '</div></br>';
-        // }
-
 
         $new_content .= '</div>';
         $new_content .= '<div class="product-left-box product-nutrition-fact">';
