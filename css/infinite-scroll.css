@@ -72,7 +72,12 @@
     color: #000;
 }
 
-.product-list-container .alert-info {
+.alert-div {
+    display: inline-block;
+    width: 100%;
+}
+
+.alert-div .alert-info {
     padding: 20px;
     width: 100%;
     border-radius: 5px;

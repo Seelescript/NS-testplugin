@@ -2,7 +2,7 @@
 
 add_shortcode('infinite-products', 'shortcode'  );
 function shortcode(){
-    return '<div class="product-list-container"></div>';
+    return '<div class="product-list-container"></div><div class="alert-div"></div>';
     //simple shortcode to add container of post list
 }
 

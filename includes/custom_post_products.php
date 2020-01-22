@@ -89,7 +89,7 @@ function add_product_metabox()
 {
     //metaboxes - separate in 2 boxes to show clear the values of Nutrition Facts
     add_meta_box('product-details', 'Product Details', 'ns_product_meta', 'products', 'normal', 'low');
-    add_meta_box('product-nutrition-facts', 'Nutrition Facts', 'ns_nutrition_facts', 'products', 'side', 'low');
+    add_meta_box('product-nutrition-facts', 'Nutrition Facts', 'ns_nutrition_facts', 'products', 'normal', 'low');
 }
 
 function add_custom_css(){
