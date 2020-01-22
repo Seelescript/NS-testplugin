@@ -1,7 +1,8 @@
 jQuery(function($) {
     let blogPosts = $('.product-list-container');
+    let alertdiv = $('.alert-div');
 
-    blogPosts.append('<div class="col-ms-12"><a class="c-btn c-btn--pink c-posts__more btn btn-primary" href="#">Load More Product</a></div>');
+    alertdiv.append('<div class="col-ms-12"><a class="c-btn c-btn--pink c-posts__more btn btn-primary" href="#">Load More Product</a></div>');
 
     let moreButton = $('.c-posts__more'),
         page = 1,
@@ -12,7 +13,7 @@ jQuery(function($) {
         e.preventDefault();
 
         blogPosts.append('<div class="c-posts__loader"></div>');
-        alertdiv = $('.alert-div');
+
 
         let blogLoader = $('.c-posts__loader');
 
@@ -30,15 +31,14 @@ jQuery(function($) {
                 if (res.success) {
                     console.log('Current Page ' + page);
                     console.log('Max Pages ' + maxpage);
-                    blogPosts.append(res.data);
-                    //console.log(res.data);
+
                     blogLoader.remove();
 
                     if (page >= maxpage) {
-                        moreButton.remove();
+
                         alertdiv.append('<div class="alert alert-info"><b>Alert info: </b>Sorry, there are no more products.</div>')
                     } else {
-                        blogPosts.append(moreButton);
+
                     }
 
                     page = page + 1;
@@ -50,6 +50,7 @@ jQuery(function($) {
                 console.log(xhr.responseText);
             });
         }
+        return false;
     });
 
     $(document).ready(function() {
@@ -103,8 +104,6 @@ jQuery(function($) {
                 $.post(loadmore.url, data, function(res) {
                     if (res.success) {
                         blogPosts.append(res.data);
-                        blogPosts.append(moreButton);
-
                         page = page + 1;
                         loading = false;
                     } else {
