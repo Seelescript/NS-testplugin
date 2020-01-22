@@ -15,6 +15,9 @@ Permalink Settings to  Post name
 ```bash
 /%postname%/
 ```
+```bash
+Apache directory need set 'AllowOverrite All'
+```
 
 
 ## Notes:
