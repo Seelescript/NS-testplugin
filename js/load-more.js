@@ -1,10 +1,9 @@
 jQuery(function($) {
-    let blogPosts = $('.product-list-container');
-    let alertdiv = $('.alert-div');
+    var blogPosts = $('.product-list-container');
 
-    alertdiv.append('<div class="col-ms-12"><a class="c-btn c-btn--pink c-posts__more btn btn-primary" href="#">Load More Product</a></div>');
+    blogPosts.append('<div class="col-ms-12"><a class="c-btn c-btn--pink c-posts__more btn btn-primary" href="#">Load More Product</a></div>');
 
-    let moreButton = $('.c-posts__more'),
+    var moreButton = $('.c-posts__more'),
         page = 1,
         loading = false,
         maxpage = loadmore.maxpages;
@@ -14,13 +13,12 @@ jQuery(function($) {
 
         blogPosts.append('<div class="c-posts__loader"></div>');
 
-
-        let blogLoader = $('.c-posts__loader');
+        var blogLoader = $('.c-posts__loader');
 
         if (!loading) {
             loading = true;
 
-            let data = {
+            var data = {
                 action: 'load_more_ajax',
                 nonce: loadmore.nonce,
                 page: page,
@@ -31,14 +29,15 @@ jQuery(function($) {
                 if (res.success) {
                     console.log('Current Page ' + page);
                     console.log('Max Pages ' + maxpage);
-
+                    blogPosts.append(res.data);
+                    //console.log(res.data);
                     blogLoader.remove();
 
                     if (page >= maxpage) {
-
-                        alertdiv.append('<div class="alert alert-info"><b>Alert info: </b>Sorry, there are no more products.</div>')
+                        moreButton.remove();
+                        //blogPosts.append('<div class="alert alert-info"><b>Alert info: </b>Sorry, there are no more products.</div>')
                     } else {
-
+                        blogPosts.append(moreButton);
                     }
 
                     page = page + 1;
@@ -50,32 +49,30 @@ jQuery(function($) {
                 console.log(xhr.responseText);
             });
         }
-        return false;
     });
 
-    $(document).ready(function() {
-        //     let data = {
-        //         action: 'load_more_ajax',
-        //         nonce: loadmore.nonce,
-        //         page: 1,
-        //         query: loadmore.query
-        //     };
+    // $(document).ready(function() {
+    //     var data = {
+    //         action: 'load_more_ajax',
+    //         nonce: loadmore.nonce,
+    //         page: 1,
+    //         query: loadmore.query
+    //     };
 
-        //     $.post(loadmore.url, data, function(res) {
-        //         if (res.success) {
-        //             blogPosts.append(res.data);
-        //             blogPosts.append(moreButton);
+    //     $.post(loadmore.url, data, function(res) {
+    //         if (res.success) {
+    //             blogPosts.append(res.data);
+    //             blogPosts.append(moreButton);
 
-        //             page = page;
-        //             loading = false;
-        //         } else {
-        //             console.log(res);
-        //         }
-        //     });
-        //     console.log('check');
-        //$('.c-posts__more').click();
-    });
-    let scrollHandling = {
+    //             page = page;
+    //             loading = false;
+    //         } else {
+    //             console.log(res);
+    //         }
+    //     });
+    //     console.log('check');
+    // });
+    var scrollHandling = {
         allow: true,
         reallow: function() {
             scrollHandling.allow = true;
@@ -89,12 +86,12 @@ jQuery(function($) {
 
             setTimeout(scrollHandling.reallow, scrollHandling.delay);
 
-            let buttonOffset = moreButton.offset().top - $(window).scrollTop();
+            var buttonOffset = moreButton.offset().top - $(window).scrollTop();
 
             if (buttonOffset < 2000) {
                 loading = true;
 
-                let data = {
+                var data = {
                     action: 'load_more_ajax',
                     nonce: loadmore.nonce,
                     page: page,
@@ -104,6 +101,8 @@ jQuery(function($) {
                 $.post(loadmore.url, data, function(res) {
                     if (res.success) {
                         blogPosts.append(res.data);
+                        blogPosts.append(moreButton);
+
                         page = page + 1;
                         loading = false;
                     } else {
